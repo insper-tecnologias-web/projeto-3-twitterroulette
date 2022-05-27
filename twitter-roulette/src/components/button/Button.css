@@ -1,0 +1,12 @@
+.button-container {
+    display: flex;
+    flex-direction: row;
+}
+
+#name-light {
+    color: black;
+}
+
+#name-dark {
+    color: white;
+}

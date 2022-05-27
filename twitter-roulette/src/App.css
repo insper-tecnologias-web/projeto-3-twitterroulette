@@ -1,26 +1,62 @@
+@font-face {
+    font-family: "chirpregular";
+    src: url("fonts/chirp_regular-webfont.woff") format("woff");
+    font-weight: normal;
+    font-style: normal;
+}
+
 .app-container {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
+    width: 100%;
+    height: 100vh;
+    font-family: "chirregular", sans-serif;
 }
 
-.container-topo {
+#app-container-light {
+    background-color: #f5f8fa;
+}
+#app-container-dark {
+    background-color: black;
+}
+
+.container-top {
     margin-top: 1rem;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.pergunta {
+.question {
     font-size: 3rem;
     margin: 0;
-    color: #1da1f2;
-    /* color: white; */
 }
 
-.rodada {
+#question-light {
+    color: #1da1f2;
+}
+
+#question-dark {
+    color: white;
+}
+
+.round {
     margin: 0;
-    color: #657786;
     font-size: 1.5rem;
+}
+#round-light {
+    color: #657786;
+}
+#round-dark {
+    color: #657786;
+}
+
+.btn-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 30rem;
 }

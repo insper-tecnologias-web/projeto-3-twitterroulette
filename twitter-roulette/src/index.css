@@ -4,14 +4,23 @@ body {
         "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
         "Helvetica Neue", sans-serif;
     background-color: #1da1f2;
-    background-color: #f5f8fa;
-    /* background-color: #6bc3fa; */
+    /* background-color: #f5f8fa; */
+    background-color: #6bc3fa;
     /* background-image: linear-gradient(to right, #7eceff, #5eafe2); */
+    background-color: black;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    min-height: 100vh;
+    overflow: auto;
 }
 
 code {
     font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
         monospace;
+}
+
+.html {
+    width: 100%;
+    height: 100vh;
+    overflow: auto;
 }
