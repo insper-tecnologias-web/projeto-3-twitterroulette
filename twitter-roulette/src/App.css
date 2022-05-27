@@ -5,6 +5,7 @@
     font-style: normal;
 }
 
+
 .app-container {
     display: flex;
     flex-direction: column;
@@ -15,48 +16,10 @@
     font-family: "chirregular", sans-serif;
 }
 
-#app-container-light {
+#app-container-light{
     background-color: #f5f8fa;
 }
-#app-container-dark {
+#app-container-dark{
     background-color: black;
-}
 
-.container-top {
-    margin-top: 1rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.question {
-    font-size: 3rem;
-    margin: 0;
-}
-
-#question-light {
-    color: #1da1f2;
-}
-
-#question-dark {
-    color: white;
-}
-
-.round {
-    margin: 0;
-    font-size: 1.5rem;
-}
-#round-light {
-    color: #657786;
-}
-#round-dark {
-    color: #657786;
-}
-
-.btn-container {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    width: 30rem;
 }

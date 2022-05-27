@@ -1,12 +1,87 @@
+.button-ext-container{
+    width: 35%;
+    height: 10%;
+    margin: .7rem 0 .7rem 0;
+    border-radius: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem 1.8rem 1rem 1.8rem;
+    cursor: pointer;
+}
+#button-ext-container-light{
+    border:solid 0.08rem #1da1f2;
+}
+#button-ext-container-light:hover{
+    transition: 0.2s;
+    border:solid 0.08rem #1474af;
+}
+
+#button-ext-container-dark{
+    border: solid 0.08rem rgba(138, 136, 136, 0.224);
+}
+#button-ext-container-dark:hover{
+    transition: 0.2s;
+    border:solid 0.08rem rgba(17, 58, 119, 0.224);
+}
+
 .button-container {
+    width: 100%;
+    height: 100%;
+    max-height: 100%;
     display: flex;
     flex-direction: row;
+    align-items: center;
+    padding: 0.75rem 1.5rem 0.75rem 1.5rem;
+    border-radius: 2rem;
 }
 
-#name-light {
-    color: black;
+
+#button-container-light{
+    background-color: #1da1f2;
+    border: solid 0.1rem rgba(0, 0, 0, 0.224); 
 }
 
-#name-dark {
+
+#button-container-light:hover {
+    transition: 0.6s;
+    background-color: #1474af;
+  }
+
+#button-container-dark{
+    border: solid 0.1rem rgba(138, 136, 136, 0.224);
+    background-color: #0a0a0aec;
+}
+
+
+#button-container-dark:hover {
+    transition: 0.6s;
+    background-color: rgba(121, 121, 121, 0.224);
+  }
+
+.name-button{
+    flex-grow: 1;
+    align-self: center;
+    justify-self: center;
+    text-align: center;
+    font-size: 1.3rem;
+}
+
+.img-button{
+    border-radius: 50%;
+    height: auto; 
+    width: auto; 
+    max-width: 3.5rem; 
+    max-height: 3.5rem;
+    border: solid 0.07rem #000000;
+   
+}
+
+#name-button-light {
+    color: #ffffff;
+}
+
+#name-button-dark {
     color: white;
 }

@@ -1,4 +1,3 @@
-import { TwitterTweetEmbed } from "react-twitter-embed";
 import "./Tweet.css";
 
 export default function Tweet(props) {

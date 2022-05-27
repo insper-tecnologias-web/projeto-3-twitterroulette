@@ -1,8 +1,9 @@
 import "./App.css";
-import Tweet from "./components/tweet/Tweet";
-import Header from "./components/header/Header";
-import Button from "./components/button/Button";
+import GameScreen from "./components/gameScreen/GameScreen"
+import Header from "./components/header/Header"
+
 import { useState } from "react";
+import WaitingScreen from "./components/waitingScreen/WaitingScreen";
 
 function App() {
     const [theme, setTheme] = useState("light");
@@ -15,22 +16,9 @@ function App() {
     return (
         <div className="app-container" id={"app-container-" + theme}>
             <Header theme={theme} toggleTheme={toggleTheme} />
-            <div className="container-top">
-                <h1 className="round" id={"round-" + theme}>
-                    2/8
-                </h1>
-                <h1 className="question" id={"question-" + theme}>
-                    De quem é este tweet?
-                </h1>
-            </div>
-            <Tweet className="tweet" theme={theme} />
+            {/* <GameScreen theme = {theme}/> */}
+            <WaitingScreen theme = {theme}/>
 
-            <div className="btn-container">
-                <Button theme={theme} />
-                <Button theme={theme} />
-                <Button theme={theme} />
-                <Button theme={theme} />
-            </div>
         </div>
     );
 }

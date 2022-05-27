@@ -1,0 +1,10 @@
+Borda cinza light mode: solid 0.07rem rgba(0, 0, 0, 0.224);
+
+Azul twiiter: #1DA1F2;
+Black twiiter: #14171A;
+Dark grey twiiter: #657786;
+Light grey twiiter: #AAB8C2;
+Extra Light grey twiiter: #E1E8ED;
+Extra Extra Light grey twiiter: #F5F8FA;
+Azul hover: #1474af
+Azul escuro header: #0356fc
