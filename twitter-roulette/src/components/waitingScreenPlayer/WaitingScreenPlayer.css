@@ -1,4 +1,6 @@
-.player-container{
+@import url("https://fonts.googleapis.com/css?family=Montserrat:600&display=swap");
+
+.player-container {
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
@@ -11,15 +13,18 @@
 }
 
 .img-player {
-    height: auto; 
-    width: auto; 
-    max-width: 100%; 
-    max-height: 96%;
+    height: auto;
+    width: auto;
+    max-width: 90%;
+    max-height: 90%;
     margin-right: 3%;
+    margin-left: 3%;
 }
 
-.name-player{
-    font-size: 140%;
+.name-player {
+    font-size: 100%;
     color: #191970;
     margin-left: 1%;
+    width: 82%;
+    font-family: "Montserrat", sans-serif;
 }

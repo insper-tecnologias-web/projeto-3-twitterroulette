@@ -7,12 +7,14 @@ export default function WaitingScreenPlayer(props) {
             className="player-container"
             id={"player-container-" + props.theme}
         >
-            <img className="img-player" src={process.env.PUBLIC_URL + `img/animals/${props.foto}.png`}/>
+            <img
+                className="img-player"
+                src={process.env.PUBLIC_URL + `img/animals/${props.foto}.png`}
+            />
 
             <h1 className="name-player" id={"name-player-" + props.theme}>
-                Felipe Schiavinato da silva santos
+                Felipe
             </h1>
-    
         </div>
     );
 }
