@@ -26,8 +26,8 @@ export default function WaitingScreen(props){
             <div className='waiting-container-right'>
                 <div className='waiting-container-options'>
 
-                    <WaitingScreenButton theme={props.theme} conteudo={"EDITAR"} img='user'/>
-                    <WaitingScreenButton theme={props.theme} conteudo={"JOGAR"} img='play'/>
+                    <WaitingScreenButton theme={props.theme}  conteudo={"EDITAR"} img='user'/>
+                    <WaitingScreenButton theme={props.theme}  conteudo={"JOGAR"} img='play'/>
 
                 </div>
                 
