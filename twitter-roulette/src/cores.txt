@@ -8,3 +8,12 @@ Extra Light grey twiiter: #E1E8ED;
 Extra Extra Light grey twiiter: #F5F8FA;
 Azul hover: #1474af
 Azul escuro header: #0356fc
+
+
+
+
+
+
+
+#54b9d3
+#96cfb9 verde

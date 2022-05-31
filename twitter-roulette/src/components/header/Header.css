@@ -18,7 +18,8 @@
 }
 
 #header-container-light {
-    background-image: linear-gradient(to right, #1da1f2, #0356fc);
+    /* background-image: linear-gradient(to right, #1da1f2, #0356fc) */
+    background-image: linear-gradient(to right, #1da1f2, #a103fc);
 }
 
 #header-container-dark {

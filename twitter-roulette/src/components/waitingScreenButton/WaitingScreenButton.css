@@ -38,12 +38,18 @@
     font-size: 100%;
     font-weight: bold;
     outline: none;
-    background-color: #1da1f2;
     position: relative;
     z-index: 1;
     font-family: "Roboto", sans-serif;
     /* border: solid .1rem #0e85cf; */
+}
 
+#waiting-button-container-light {
+    background-color: #1da1f2;
+}
+
+#waiting-button-container-dark {
+    background-color: #14171a;
 }
 
 .waiting-button-conteudo {
@@ -63,13 +69,20 @@
 }
 
 .waiting-button-container:hover {
-    transition: .3s;
+    transition: 0.3s;
     color: white;
     cursor: pointer;
+    transform: scale(1.1, 1.1);
+    -webkit-transform: scale(1.1, 1.1);
+    -moz-transform: scale(1.1, 1.1);
+}
+
+#waiting-button-container-light:hover {
     background-color: #0e85cf;
-    transform:scale(1.1,1.1);
-    -webkit-transform:scale(1.1,1.1);
-    -moz-transform:scale(1.1,1.1);
+}
+
+#waiting-button-container-dark:hover {
+    background-color: #657786;
 }
 
 /* .waiting-button-container:before {
