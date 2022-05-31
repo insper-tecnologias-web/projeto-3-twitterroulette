@@ -1,0 +1,12 @@
+.my-message-container{
+    align-self: flex-end;
+}
+
+.my-message{
+    border: solid 0.07rem rgba(0, 0, 0, 0.224);
+    padding: 1%;
+    text-align: end;
+    background-color: #1DA1F2;
+    border-radius: 10%;
+    color: white;
+}

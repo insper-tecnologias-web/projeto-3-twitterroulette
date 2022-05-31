@@ -1,0 +1,20 @@
+.container-msgs{
+    height: 84%;
+    max-height: 90%;
+    width: 94%;
+    background-color: #F5F8FA;
+    margin: 3% 0 0 0;
+    overflow-y:auto;
+    display: flex;
+    flex-direction: column-reverse;
+}
+
+.container-input{
+    height: 10%;
+    width: 100%;    
+    max-height: 10%;
+    background-color: aqua;
+    
+}
+
+
