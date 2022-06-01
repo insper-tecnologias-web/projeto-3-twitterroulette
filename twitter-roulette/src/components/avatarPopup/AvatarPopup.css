@@ -1,0 +1,40 @@
+.avatar-popup-overlay {
+  position: fixed;
+  width: 100%;
+  height: 94%;
+  background-color: rgba(
+    0,
+    0,
+    0,
+    0.3
+  ); /*this sets the slightly see-through black*/
+  /* z-index: 100; /*Make this less than the existing popup div*/
+  /* font-weight: 400;  */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.avatar-popup-container {
+  width: 80%;
+  height: 60%;
+  border-radius: 5rem;
+  border: 0.2rem solid #aab8c22f;
+  background-color: rgba(111, 55, 216, 0.9);
+
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.avatar-popup-close {
+  position: absolute;
+  right: 2.5%;
+  top: 2.5%;
+  font-size: 1.5rem;
+  cursor: default;
+  color: #e1e8ed;
+}

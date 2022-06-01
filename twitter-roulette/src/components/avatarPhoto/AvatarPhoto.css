@@ -1,0 +1,15 @@
+.avatar-photo-container {
+  width: 10%;
+  height: 20%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.avatar-photo-img {
+  height: auto;
+  width: auto;
+  max-width: 80%;
+  max-height: 80%;
+  cursor: pointer;
+}
