@@ -4,28 +4,28 @@ import { nanoid } from "nanoid";
 import "./Chat.css";
 import Message from "../message/Message";
 
-const socket = io.connect("http://localhost:3001");
+// const socket = io.connect("http://localhost:3001");
 export default function Chat(props) {
     const [currentMessage, setCurrentMessage] = useState("");
     const [allMessages, setAllMessages] = useState(null);
 
-    console.log("All messages:");
-    console.log(allMessages);
+    // console.log("All messages:");
+    // console.log(allMessages);
 
     const sendMessage = () => {
         const msgId = nanoid();
-        const objMsg = { user: socket.id, content: currentMessage };
+        const objMsg = { user: props.user, content: currentMessage };
         setAllMessages((prevMessages) => ({
             ...prevMessages,
             [msgId]: objMsg,
         }));
-        socket.emit("send_message", { id: msgId, message: objMsg });
+        props.socket.emit("send_message", { id: msgId, message: objMsg });
         setCurrentMessage("");
     };
 
     useEffect(() => {
         console.log("Conectou");
-        socket.on("receive_message", (data) => {
+        props.socket.on("receive_message", (data) => {
             setAllMessages((prevMessages) => ({
                 ...prevMessages,
                 [data.id]: {
@@ -34,7 +34,7 @@ export default function Chat(props) {
                 },
             }));
         });
-    }, [socket]);
+    }, [props.socket]);
 
     function verifyClick(event) {
         if (event.key === "Enter") {
@@ -54,10 +54,11 @@ export default function Chat(props) {
                         .reverse()
                         .map((msgKey, index) => (
                             <Message
-                                username={"Paulo"}
+                                username={allMessages[msgKey].user.name}
                                 message={allMessages[msgKey].content}
                                 isMyMessage={
-                                    allMessages[msgKey].user === socket.id
+                                    allMessages[msgKey].user.id ===
+                                    props.user.id
                                 }
                             />
                         ))}

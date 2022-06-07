@@ -6,6 +6,7 @@ export default function WaitingScreenButton(props) {
         <div
             className="waiting-button-container"
             id={"waiting-button-container-" + props.theme}
+            onClick={props.click}
         >
             <span></span>
             <span></span>

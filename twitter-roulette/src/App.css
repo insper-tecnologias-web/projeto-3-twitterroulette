@@ -5,7 +5,6 @@
     font-style: normal;
 }
 
-
 .app-container {
     display: flex;
     flex-direction: column;
@@ -16,10 +15,11 @@
     font-family: "chirregular", sans-serif;
 }
 
-#app-container-light{
+#app-container-light {
     background-color: #f5f8fa;
 }
-#app-container-dark{
+#app-container-dark {
     background-color: black;
-
+    background-image: linear-gradient(to right, #201629, black);
+    background-image: linear-gradient(to right, #18131c, black);
 }

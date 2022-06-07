@@ -1,0 +1,111 @@
+.room-popup-overlay {
+    position: fixed;
+    width: 100%;
+    height: 94%;
+    /*this sets the slightly see-through black*/
+    /* z-index: 100; /*Make this less than the existing popup div*/
+    /* font-weight: 400;  */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#room-popup-overlay-light {
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+.room-popup-container {
+    width: 35%;
+    height: 80%;
+    border-radius: 5rem;
+    border: 0.2rem solid #aab8c22f;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    position: relative;
+}
+
+#room-popup-container-light {
+    background-color: rgba(111, 55, 216, 0.9);
+}
+
+.room-popup-close {
+    position: absolute;
+    right: 7%;
+    top: 3%;
+    font-size: 120%;
+    cursor: default;
+}
+#room-popup-close-light {
+    color: #e1e8ed;
+}
+
+#room-popup-close-dark {
+    color: #aab8c2;
+}
+
+.room-popup-title {
+    height: 10%;
+    width: 100%;
+    text-align: center;
+    font-size: 120%;
+    color: #f5f8fa;
+    justify-self: flex-start;
+}
+
+.room-popup-content {
+    height: 90%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.room-popup-inputs-container {
+    height: 50%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.room-popup-input {
+    min-width: 120px;
+    width: 80%;
+    height: 20%;
+    border-radius: 0.4rem;
+    border: none;
+    margin: 1% 0 0 0;
+    padding: 3%;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: white;
+}
+
+#room-popup-input-dark {
+    color: #aab8c2;
+}
+
+.room-popup-input::placeholder {
+    color: #f5f8fa;
+}
+
+#room-popup-input-dark::placeholder {
+    color: #aab8c2;
+}
+
+.room-popup-input:focus {
+    outline: 2px solid rgba(225, 232, 237, 0.3);
+}
+
+.room-popup-btns-container {
+    width: 80%;
+    height: 10%;
+    justify-self: flex-end;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}

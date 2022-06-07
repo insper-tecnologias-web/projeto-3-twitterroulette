@@ -24,6 +24,8 @@
 
 #header-container-dark {
     background-color: black;
+    background-image: linear-gradient(to right, #201629, black);
+    background-image: linear-gradient(to right, #18131c, black);
 }
 
 .switch-container {

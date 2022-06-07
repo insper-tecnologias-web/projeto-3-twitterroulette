@@ -1,104 +1,122 @@
 .initial-button-container {
-  background-color: aliceblue;
-  position: relative;
-  width: 15%;
-  max-width: 20%;
-  height: 30%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  border: 0.2rem solid #d2d7db;
-  /* border-radius: 0.4rem; */
-  background-color: transparent;
-  color: #d2d7db;
-  box-shadow: inset 0 0 0 0 #d2d7db;
-  transition: ease-out 0.25s;
+    position: relative;
+    width: 15%;
+    max-width: 20%;
+    height: 30%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 0.2rem solid #d2d7db;
+    background-color: transparent;
+    color: #d2d7db;
 }
 
-.initial-button-container:hover {
-  box-shadow: inset 30rem 0 0 0 rgba(255, 255, 255, 0.8);
-  color: #8544f9;
-  transition: ease-out 2s;
+#initial-button-container-light {
+    box-shadow: inset 0 0 0 0 rgba(255, 255, 255, 0.8);
+    transition: ease-out 0.25s;
+}
+
+#initial-button-container-dark {
+    box-shadow: inset 0 0 0 0 #201629;
+    transition: ease-out 0.25s;
+}
+
+#initial-button-container-light:hover {
+    box-shadow: inset 30rem 0 0 0 rgba(255, 255, 255, 0.8);
+    color: #8544f9;
+    transition: ease-out 2s;
+}
+
+#initial-button-container-dark:hover {
+    box-shadow: inset 30rem 0 0 0 #201629;
+    color: white;
+    transition: ease-out 2s;
 }
 
 .initial-button-content {
-  font-weight: 700;
-  font-size: 150%;
+    font-weight: 700;
+    font-size: 150%;
 }
 
-.initial-button-container span {
-  display: block;
-  position: absolute;
-  background-color: #8544f9;
+#initial-button-container-light span {
+    display: block;
+    position: absolute;
+    background-color: #8544f9;
+}
+
+#initial-button-container-dark span {
+    display: block;
+    position: absolute;
+    background-color: #201629;
 }
 
 .initial-button-container span:nth-child(1) {
-  left: -3%;
-  bottom: -7%;
-  width: 1.75%;
-  width: 0.6rem;
-  height: 114%;
-  transform: scaleY(0);
-  transform-origin: top;
-  transition: transform 0.25s;
+    left: -3%;
+    bottom: -7%;
+    width: 1.75%;
+    width: 0.6rem;
+    height: 114%;
+    transform: scaleY(0);
+    transform-origin: top;
+    transition: transform 0.25s;
 }
 
 .initial-button-container:hover span:nth-child(1) {
-  transform: scaleY(1);
-  transform-origin: bottom;
-  transition: transform 0.5s;
+    transform: scaleY(1);
+    transform-origin: bottom;
+    transition: transform 0.5s;
 }
 
 .initial-button-container span:nth-child(2) {
-  left: 0%;
-  bottom: -7%;
-  width: 100%;
-  height: 5%;
-  height: 0.4rem;
-  transform: scaleX(0);
-  transform-origin: right;
-  transition: transform 0.25s;
+    left: 0%;
+    bottom: -7%;
+    width: 100%;
+    height: 5%;
+    height: 0.4rem;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.25s;
 }
 
 .initial-button-container:hover span:nth-child(2) {
-  transform: scaleX(1);
-  transform-origin: left;
-  transition: transform 0.5s;
+    transform: scaleX(1);
+    transform-origin: left;
+    transition: transform 0.5s;
 }
 
 .initial-button-container span:nth-child(3) {
-  right: -3%;
-  bottom: -7%;
-  width: 1.75%;
-  width: 0.6rem;
-  height: 114%;
-  transform: scaleY(0);
-  transform-origin: top;
-  transition: transform 0.25s;
+    right: -3%;
+    bottom: -7%;
+    width: 1.75%;
+    width: 0.6rem;
+    height: 114%;
+    transform: scaleY(0);
+    transform-origin: top;
+    transition: transform 0.25s;
 }
 
 .initial-button-container:hover span:nth-child(3) {
-  transform: scaleY(1);
-  transform-origin: bottom;
-  transition: transform 0.5s;
-  transition-delay: 0.4s;
+    transform: scaleY(1);
+    transform-origin: bottom;
+    transition: transform 0.5s;
+    transition-delay: 0.4s;
 }
 
 .initial-button-container span:nth-child(4) {
-  left: 0%;
-  top: -7%;
-  width: 100%;
-  height: 5%;
-  height: 0.4rem;
-  transform: scaleX(0);
-  transform-origin: right;
-  transition: transform 0.25s;
+    left: 0%;
+    top: -7%;
+    width: 100%;
+    height: 5%;
+    height: 0.4rem;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.25s;
 }
 
 .initial-button-container:hover span:nth-child(4) {
-  transform: scaleX(1);
-  transform-origin: left;
-  transition: transform 0.5s;
-  transition-delay: 0.4s;
+    transform: scaleX(1);
+    transform-origin: left;
+    transition: transform 0.5s;
+    transition-delay: 0.4s;
 }

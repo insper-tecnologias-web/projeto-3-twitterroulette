@@ -1,0 +1,31 @@
+.room-popup-btn-container {
+    background-color: aliceblue;
+    width: 40%;
+    height: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #f5f8fa;
+    transition: ease-out 0.3s;
+}
+
+#room-popup-btn-container-light {
+    background-color: rgba(45, 0, 128, 0.9);
+}
+
+#room-popup-btn-container-dark {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.room-popup-btn-content {
+    font-size: 100%;
+}
+
+.room-popup-btn-container:hover {
+    transition: 0.3s;
+    color: white;
+    cursor: pointer;
+    transform: scale(1.1, 1.1);
+    -webkit-transform: scale(1.1, 1.1);
+    -moz-transform: scale(1.1, 1.1);
+}
