@@ -1,36 +1,42 @@
 import "./Tweet.css";
 
 export default function Tweet(props) {
-    const { tweet, usuario: user, retweet } = props.game;
-    const {
-        nome_usuario: userName,
-        img_usuario: userImg,
-        conta_usuario: userAccount,
-    } = user;
-    // if (retweet) {
-    //     const {
-    //         conteudo: content,
-    //         data: date,
-    //         nome_dono: ownerName,
-    //         url_avatar_: ownerProfilePic,
-    //         usuario_dono: userOwner,
-    //     } = tweet;
-    // } else {
-    //     const { conteudo: content, data: date } = tweet;
-    // }
+  const { tweet, usuario: user, retweet } = props.game;
+  const {
+    nome_usuario: userName,
+    img_usuario: userImg,
+    conta_usuario: userAccount,
+  } = user;
+  const {
+    conteudo: content,
+    data: date,
+    nome_dono: ownerName,
+    url_avatar_dono: ownerProfilePic,
+    urls_img_tweet: urlsImages,
+    usuario_dono: userOwner,
+  } = tweet;
 
-    const {
-        conteudo: content,
-        data: date,
-        nome_dono: ownerName,
-        url_avatar_dono: ownerProfilePic,
-        usuario_dono: userOwner,
-    } = tweet;
+  console.log(content);
+  function filterContent() {
+    let filteredContent;
+    if (retweet) {
+      filteredContent = content.slice(content.indexOf(":") + 1);
+    } else {
+      filteredContent = content;
+    }
 
-    console.log(ownerProfilePic);
-    return (
-        <div className="tweet-container" id={"tweet-container-" + props.theme}>
-            {retweet && (
+    if (filteredContent.includes("https://t.co")) {
+      filteredContent = filteredContent.slice(
+        0,
+        filteredContent.indexOf("https://t.co") - 1
+      );
+    }
+    return filteredContent;
+  }
+
+  return (
+    <div className="tweet-container" id={"tweet-container-" + props.theme}>
+      {/* {retweet && (
                 <div className="retweet-header">
                     <svg
                         viewBox="0 0 24 24"
@@ -43,38 +49,45 @@ export default function Tweet(props) {
                     </svg>
                     <h1>You Retweeted</h1>
                 </div>
-            )}
-            <div className="tweet-header">
-                <div className="container-img-user">
-                    <div className="container-img">
-                        <img
-                            className="img"
-                            src={retweet ? ownerProfilePic : userImg}
-                        />
-                    </div>
-                    <div className="name-user-container">
-                        <h1 className="name">
-                            {retweet ? ownerName : userName}
-                        </h1>
-                        <h2 className="user" id={"user-" + props.theme}>
-                            {retweet ? userOwner : userAccount}
-                        </h2>
-                    </div>
-                </div>
-                <div className="logo-container">
-                    <img src="./twitter-logo-4.png" className="logo" />
-                </div>
-            </div>
-            <div className="content-container">
-                <p className="content">
-                    {retweet
-                        ? content.slice(content.indexOf(":") + 1)
-                        : content}
-                </p>
-                <p className="date-time" id={"date-time-" + props.theme}>
-                    11:32 PM · May 19, 2022
-                </p>
-            </div>
+            )} */}
+      <div className="tweet-header">
+        <div className="container-img-user">
+          <div className="container-img">
+            <img
+              className="tweet-avatar-img"
+              src={retweet ? ownerProfilePic : userImg}
+            />
+          </div>
+          <div className="name-user-container">
+            <h1 className="name">{retweet ? ownerName : userName}</h1>
+            <h2 className="user" id={"user-" + props.theme}>
+              {retweet ? userOwner : userAccount}
+            </h2>
+          </div>
         </div>
-    );
+        <div className="logo-container">
+          <img src="./twitter-logo-4.png" className="logo" />
+        </div>
+      </div>
+      <div className="content-container">
+        <p className="content">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras suscipit
+          ex ac dui congue, in blandit lorem commodo. Suspendisse fringilla
+          vehicula varius. Duis cursus quam ultrices nisl interdum pulvinar. Nam
+          convallis, ipsum ac ullamcorper volutpat, diam leo iaculis dolor, ut
+          luctus lectus lorem nec risus.{" "}
+        </p>
+        {urlsImages && (
+          <div className="tweet-imgs-container">
+            {urlsImages.map((url, index) => (
+              <img className="tweet-img-content" key={index} src={url} />
+            ))}
+          </div>
+        )}
+        <p className="date-time" id={"date-time-" + props.theme}>
+          11:32 PM · May 19, 2022
+        </p>
+      </div>
+    </div>
+  );
 }
