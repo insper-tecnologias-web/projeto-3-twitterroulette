@@ -37,24 +37,29 @@
     border-radius: 2rem;
 }
 
-#button-container-light {
+#button-container-unselected-light {
     background-color: #1da1f2;
     border: solid 0.1rem rgba(0, 0, 0, 0.224);
 }
 
-#button-container-light:hover {
+#button-container-unselected-light:hover {
     transition: 0.6s;
     background-color: #1474af;
 }
 
-#button-container-dark {
+#button-container-unselected-dark {
     border: solid 0.1rem rgba(138, 136, 136, 0.224);
     background-color: #0a0a0aec;
 }
 
-#button-container-dark:hover {
+#button-container-unselected-dark:hover {
     transition: 0.6s;
     background-color: rgba(121, 121, 121, 0.224);
+}
+
+#button-container-selected-light,
+#button-container-selected-dark {
+    background-color: #a01df2;
 }
 
 .name-button {

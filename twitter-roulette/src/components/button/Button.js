@@ -2,6 +2,8 @@ import React from "react";
 import "./Button.css";
 
 export default function Button(props) {
+    const [isSelected, setIsSelected] = React.useState("unselected");
+    // console.log(`buttonType: ${isSelected} do player ${props.player[0]}`);
     return (
         <div
             className="button-ext-container"
@@ -9,11 +11,21 @@ export default function Button(props) {
         >
             <div
                 className="button-container"
-                id={"button-container-" + props.theme}
-                onClick={props.changeRound}
+                id={`button-container-${isSelected}-${props.theme}`}
+                onClick={() => {
+                    if (props.canPlay) {
+                        setIsSelected("selected");
+                        props.toggleCanPlay();
+                        if (props.rightAnswer === props.player[1]) {
+                            props.submitAnswer(true);
+                        } else {
+                            props.submitAnswer(false);
+                        }
+                    }
+                }}
             >
                 <h1 className="name-button" id={"name-button-" + props.theme}>
-                    Felipe Schiavinato da silva santos
+                    {`${props.player[0]} (${props.player[1]})`}
                 </h1>
             </div>
         </div>
