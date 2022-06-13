@@ -9,7 +9,7 @@ import { nanoid } from "nanoid";
 import { useState, useEffect } from "react";
 import axios from "axios";
 
-const socket = io.connect("http://localhost:3001");
+const socket = io.connect("https://floating-peak-58701.herokuapp.com/");
 function App() {
     const [theme, setTheme] = useState("light");
     const [gameState, setGameState] = useState("initial");
@@ -139,7 +139,7 @@ function App() {
         );
 
         axios
-            .post("http://127.0.0.1:8000/api/criajogo/", {
+            .post("https://quiet-temple-70289.herokuapp.com/api/criajogo/", {
                 usuarios: accountList,
             })
             .then((response) => {
