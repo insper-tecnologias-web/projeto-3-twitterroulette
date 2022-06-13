@@ -57,9 +57,11 @@
     background-color: rgba(121, 121, 121, 0.224);
 }
 
-#button-container-selected-light,
+#button-container-selected-light {
+    background-color: #1474af;
+}
 #button-container-selected-dark {
-    background-color: #a01df2;
+    background-color: rgba(121, 121, 121, 0.224);
 }
 
 .name-button {

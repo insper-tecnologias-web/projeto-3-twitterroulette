@@ -1,0 +1,60 @@
+.score-board-user-container {
+    background-color: white;
+    padding: 0.8%;
+    border-radius: 1rem;
+    font-family: "chirregular", sans-serif;
+    border: solid 0.07rem rgba(0, 0, 0, 0.224);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 25%;
+    height: 8%;
+}
+
+#score-board-user-container-light {
+    border: solid 0.07rem rgba(0, 0, 0, 0.224);
+    background-color: white;
+}
+
+#score-board-user-container-dark {
+    border: solid 0.07rem rgba(138, 136, 136, 0.224);
+    background-color: black;
+    color: white;
+}
+
+.score-board-user-img {
+    height: auto;
+    width: auto;
+    max-width: 80%;
+    max-height: 80%;
+    border-radius: 50%;
+}
+
+.score-board-user-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    width: 75%;
+    height: 100%;
+    font-size: 80%;
+    margin-left: 2%;
+}
+
+.score-board-user-name {
+    font-size: 100%;
+    margin: 0;
+}
+
+.score-board-user-account {
+    font-size: 80%;
+    margin: 1% 0 0 0;
+    font-weight: 400;
+    color: #aab8c2;
+}
+
+.score-board-user-description {
+    font-size: 100%;
+    margin: 2% 0 0 0;
+    font-weight: 400;
+}

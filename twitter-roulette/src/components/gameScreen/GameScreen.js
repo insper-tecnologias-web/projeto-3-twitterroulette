@@ -1,10 +1,13 @@
 import { useState, useEffect } from "react";
 import "./GameScreen.css";
 import Tweet from "../tweet/Tweet";
-import TweetDebug from "../tweet/TweetDebug";
 import Button from "../button/Button";
+import ScoreBoard from "../scoreBoard/ScoreBoard";
 
 export default function GameScreen(props) {
+    const [buttons, setButtons] = useState([]);
+    const [canPlay, setCanPlay] = useState(true);
+
     const whoTweeted = [
         props.game.usuario.nome_usuario,
         `@${props.game.usuario.conta_usuario}`,
@@ -29,11 +32,6 @@ export default function GameScreen(props) {
                 sortedListButtons.length < 4 && i < playersList.length;
                 i++
             ) {
-                // console.log(
-                //     `tamanho de sortedListButtons ${sortedListButtons.length}`
-                // );
-                // console.log(`playersList esta em ${playersList[i][1]}`);
-                // console.log(`whoTweeted: ${whoTweeted[1]}`);
                 if (playersList[i][1] != whoTweeted[1]) {
                     sortedListButtons.push(playersList[i]);
                 }
@@ -42,52 +40,142 @@ export default function GameScreen(props) {
         return sortedListButtons.sort(() => Math.random() - 0.5);
     }
 
-    const [buttons, setButtons] = useState([]);
-
     useEffect(() => {
         setButtons(buildButtons());
     }, []);
-
-    const [canPlay, setCanPlay] = useState(true);
 
     function toggleCanPlay() {
         setCanPlay(false);
     }
 
+    useEffect(() => {
+        if (props.scoreBoard) {
+            const timeout = setTimeout(() => {
+                props.nextRound();
+            }, 5000);
+
+            return () => clearTimeout(timeout);
+        }
+    }, [props.scoreBoard]);
+
+    console.log(`scoreBoard: ${props.scoreBoard}`);
+    console.log(`game:`);
+    console.log(props.game);
+
+    if (props.scoreBoard) {
+        return (
+            <div className="game-screen-container">
+                <ScoreBoard
+                    theme={props.theme}
+                    game={props.game}
+                    players={props.players}
+                />
+            </div>
+        );
+    } else {
+        return (
+            <div className="game-screen-container">
+                <div className="container-top">
+                    <h1 className="round" id={"round-" + props.theme}>
+                        {props.round + 1}/10
+                    </h1>
+                    <h1 className="question" id={"question-" + props.theme}>
+                        {props.game.retweet
+                            ? "Quem retweetou isso?"
+                            : "De quem é este tweet?"}
+                    </h1>
+                </div>
+                <Tweet
+                    className="tweet"
+                    theme={props.theme}
+                    game={props.game}
+                    canBlur={true}
+                />
+
+                <div className="buttons-container">
+                    {buttons.map((player, idx) => {
+                        return (
+                            <Button
+                                key={idx}
+                                theme={props.theme}
+                                changeRound={props.changeRound}
+                                player={player}
+                                submitAnswer={props.submitAnswer}
+                                rightAnswer={whoTweeted[1]}
+                                canPlay={canPlay}
+                                toggleCanPlay={toggleCanPlay}
+                            />
+                        );
+                    })}
+                </div>
+            </div>
+        );
+    }
+
+    // function timeSleep(milliseconds) {
+    //     var start = new Date().getTime();
+    //     for (var i = 0; i < 1e7; i++) {
+    //         if (new Date().getTime() - start > milliseconds) {
+    //             break;
+    //         }
+    //     }
+    // }
+
+    // if (props.scoreBoard) {
+    //     setSleep(true);
+    //     props.disableCoreBoard();
+    // }
+
+    // if (sleep) {
+    //     timeSleep(1000);
+    //     setSleep(false);
+    // }
+
     return (
         <div className="game-screen-container">
-            <div className="container-top">
-                <h1 className="round" id={"round-" + props.theme}>
-                    {props.round + 1}/10
-                </h1>
-                <h1 className="question" id={"question-" + props.theme}>
-                    {props.game.retweet
-                        ? "Quem retweetou isso?"
-                        : "De quem é este tweet?"}
-                </h1>
-            </div>
-            <TweetDebug
-                className="tweet"
-                theme={props.theme}
-                game={props.game}
-            />
+            {props.scoreBoard ? (
+                <ScoreBoard
+                    theme={props.theme}
+                    game={props.game}
+                    players={props.players}
+                />
+            ) : (
+                <>
+                    <div className="container-top">
+                        <h1 className="round" id={"round-" + props.theme}>
+                            {props.round + 1}/10
+                        </h1>
+                        <h1 className="question" id={"question-" + props.theme}>
+                            {props.game.retweet
+                                ? "Quem retweetou isso?"
+                                : "De quem é este tweet?"}
+                        </h1>
+                    </div>
+                    <Tweet
+                        className="tweet"
+                        theme={props.theme}
+                        game={props.game}
+                        canBlur={true}
+                    />
 
-            <div className="buttons-container">
-                {buttons.map((player, idx) => {
-                    return (
-                        <Button
-                            key={idx}
-                            theme={props.theme}
-                            changeRound={props.changeRound}
-                            player={player}
-                            submitAnswer={props.submitAnswer}
-                            rightAnswer={whoTweeted[1]}
-                            canPlay={canPlay}
-                            toggleCanPlay={toggleCanPlay}
-                        />
-                    );
-                })}
-            </div>
+                    <div className="buttons-container">
+                        {buttons.map((player, idx) => {
+                            return (
+                                <Button
+                                    key={idx}
+                                    theme={props.theme}
+                                    changeRound={props.changeRound}
+                                    player={player}
+                                    submitAnswer={props.submitAnswer}
+                                    rightAnswer={whoTweeted[1]}
+                                    canPlay={canPlay}
+                                    toggleCanPlay={toggleCanPlay}
+                                />
+                            );
+                        })}
+                    </div>
+                </>
+            )}
         </div>
     );
 }

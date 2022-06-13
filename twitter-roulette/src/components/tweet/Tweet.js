@@ -1,6 +1,6 @@
 import "./Tweet.css";
 
-export default function Tweet(props) {
+export default function TweetDebug(props) {
     const { tweet, usuario: user, retweet } = props.game;
     const {
         nome_usuario: userName,
@@ -16,7 +16,7 @@ export default function Tweet(props) {
         usuario_dono: userOwner,
     } = tweet;
 
-    console.log(content);
+    // console.log(content);
     function filterContent() {
         let filteredContent;
         if (retweet) {
@@ -26,53 +26,98 @@ export default function Tweet(props) {
         }
 
         if (filteredContent.includes("https://t.co")) {
-            filteredContent = filteredContent.slice(
-                0,
-                filteredContent.indexOf("https://t.co") - 1
-            );
+            if (filteredContent.indexOf("https://t.co") - 1 < 0) {
+                filteredContent = filteredContent.slice(
+                    0,
+                    filteredContent.indexOf("https://t.co")
+                );
+            } else {
+                filteredContent = filteredContent.slice(
+                    0,
+                    filteredContent.indexOf("https://t.co") - 1
+                );
+            }
         }
         return filteredContent;
     }
 
+    let typeTweetId;
+    if (filterContent().length > 0 && urlsImages) {
+        typeTweetId = "textimg";
+    } else if (filterContent().length > 0 && !urlsImages) {
+        typeTweetId = "text";
+    } else {
+        typeTweetId = "img";
+    }
+    // console.log("AAAAAAA");
+    // console.log(typeTweetId);
+
+    // typeTweetId = "textimg";
+    // console.log(ownerProfilePic);
+
+    // console.log("Data");
+
+    // console.log(date);
+
+    function filterDate() {
+        let arrayData = date.split(" ");
+        let horario = arrayData[3];
+        let diaMesAno = `${arrayData[1]} ${arrayData[2]}, ${
+            arrayData[arrayData.length - 1]
+        }`;
+        let militaryUsHour = horario.slice(0, 2);
+        let militaryBrHour = militaryUsHour - 3;
+        if (militaryBrHour < 0) {
+            militaryBrHour += 24;
+        }
+
+        if (militaryBrHour > 12) {
+            horario = militaryBrHour - 12 + horario.slice(2, 5) + " PM";
+        } else {
+            if (militaryBrHour > 9) {
+                horario = militaryBrHour + horario.slice(2, 5) + " AM";
+            } else {
+                horario = militaryBrHour + horario.slice(2, 5) + " AM";
+            }
+        }
+
+        return horario + " · " + diaMesAno;
+    }
+
     return (
-        <div className="tweet-container" id={"tweet-container-" + props.theme}>
-            {/* {retweet && (
-                <div className="retweet-header">
-                    <svg
-                        viewBox="0 0 24 24"
-                        aria-hidden="true"
-                        class="r-1bwzh9t r-4qtqp9 r-yyyyoo r-10ptun7 r-dnmrzs r-bnwqim r-1plcrui r-lrvibr r-1janqcz"
-                    >
-                        <g>
-                            <path d="M23.615 15.477c-.47-.47-1.23-.47-1.697 0l-1.326 1.326V7.4c0-2.178-1.772-3.95-3.95-3.95h-5.2c-.663 0-1.2.538-1.2 1.2s.537 1.2 1.2 1.2h5.2c.854 0 1.55.695 1.55 1.55v9.403l-1.326-1.326c-.47-.47-1.23-.47-1.697 0s-.47 1.23 0 1.697l3.374 3.375c.234.233.542.35.85.35s.613-.116.848-.35l3.375-3.376c.467-.47.467-1.23-.002-1.697zM12.562 18.5h-5.2c-.854 0-1.55-.695-1.55-1.55V7.547l1.326 1.326c.234.235.542.352.848.352s.614-.117.85-.352c.468-.47.468-1.23 0-1.697L5.46 3.8c-.47-.468-1.23-.468-1.697 0L.388 7.177c-.47.47-.47 1.23 0 1.697s1.23.47 1.697 0L3.41 7.547v9.403c0 2.178 1.773 3.95 3.95 3.95h5.2c.664 0 1.2-.538 1.2-1.2s-.535-1.2-1.198-1.2z"></path>
-                        </g>
-                    </svg>
-                    <h1>You Retweeted</h1>
-                </div>
-            )} */}
+        <div
+            className="tweet-container"
+            id={`tweet-container-${typeTweetId}-${props.theme}`}
+        >
             <div className="tweet-header">
-                <div className="container-img-user">
-                    <div className="container-img">
-                        <img
-                            className="tweet-avatar-img"
-                            src={retweet ? ownerProfilePic : userImg}
-                        />
-                    </div>
+                <div
+                    className="left-header-container"
+                    id={`left-header-container-${
+                        !retweet && props.canBlur ? "blur" : ""
+                    }`}
+                >
+                    <img
+                        className="tweet-avatar-img"
+                        id={`tweet-avatar-img-${typeTweetId}`}
+                        src={retweet ? ownerProfilePic : userImg}
+                    />
                     <div className="name-user-container">
-                        <h1 className="name">
+                        <h1 className="tweet-name">
                             {retweet ? ownerName : userName}
                         </h1>
-                        <h2 className="user" id={"user-" + props.theme}>
+                        <h2 className="tweet-user" id={"user-" + props.theme}>
                             {retweet ? `@${userOwner}` : `@${userAccount}`}
                         </h2>
                     </div>
                 </div>
-                <div className="logo-container">
-                    <img src="./twitter-logo-4.png" className="logo" />
-                </div>
+                <img
+                    className="tweet-logo"
+                    src="./twitter-logo-4.png"
+                    id={`tweet-logo-${typeTweetId}`}
+                />
             </div>
-            <div className="content-container">
-                <p className="content">
+            <div className="tweet-content">
+                <p className="tweet-text" id={`tweet-text-${typeTweetId}`}>
                     {/* Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                     Cras suscipit ex ac dui congue, in blandit lorem commodo.
                     Suspendisse fringilla vehicula varius. Duis cursus quam
@@ -82,25 +127,22 @@ export default function Tweet(props) {
                     {filterContent()}
                 </p>
                 {urlsImages && (
-                    <div className="tweet-imgs-container">
+                    <div
+                        className="tweet-imgs-container"
+                        id={`tweet-imgs-container-${typeTweetId}`}
+                    >
                         {urlsImages.map((url, index) => (
                             <img
                                 className="tweet-img-content"
+                                id={`tweet-img-content-${typeTweetId}`}
                                 key={index}
                                 src={url}
                             />
                         ))}
                     </div>
                 )}
-                <p className="date-time" id={"date-time-" + props.theme}>
-                    11:32 PM · May 19, 2022
-                </p>
             </div>
-            {/* <div className="tweet-footer">
-                <p className="date-time" id={"date-time-" + props.theme}>
-                    11:32 PM · May 19, 2022
-                </p>
-            </div> */}
+            <div className="tweet-footer">{filterDate()}</div>
         </div>
     );
 }

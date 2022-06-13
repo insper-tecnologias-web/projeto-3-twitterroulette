@@ -3,6 +3,7 @@ import Header from "./components/header/Header";
 import InitialScreen from "./components/initialScreen/InitialScreen";
 import WaitingScreen from "./components/waitingScreen/WaitingScreen";
 import GameScreen from "./components/gameScreen/GameScreen";
+import ScoreBoard from "./components/scoreBoard/ScoreBoard";
 import io from "socket.io-client";
 import { nanoid } from "nanoid";
 import { useState, useEffect } from "react";
@@ -20,9 +21,10 @@ function App() {
         img: "dog1",
         room: "",
         ready: false,
-        acertos: 0,
+        points: 0,
     });
     const [nAnswers, setNAnswers] = useState(0);
+    const [scoreBoard, setScoreBoard] = useState(false);
     const [players, setPlayers] = useState({ [user.id]: user });
     const [sortedGame, setSortedGame] = useState([]);
     const [round, setRound] = useState(0);
@@ -172,7 +174,7 @@ function App() {
     function submitAnswer(isRight) {
         setUser((prevUser) => ({
             ...prevUser,
-            acertos: isRight ? prevUser.acertos + 1 : prevUser.acertos,
+            points: isRight ? prevUser.points + 1 : prevUser.points,
         }));
 
         if (user.host) {
@@ -181,9 +183,9 @@ function App() {
                 ...prevPlayers,
                 [user.id]: {
                     ...prevPlayers[user.id],
-                    acertos: isRight
-                        ? prevPlayers[user.id].acertos + 1
-                        : prevPlayers[user.id].acertos,
+                    points: isRight
+                        ? prevPlayers[user.id].points + 1
+                        : prevPlayers[user.id].points,
                 },
             }));
         } else {
@@ -191,7 +193,7 @@ function App() {
                 room: user.room,
                 user: {
                     ...user,
-                    acertos: isRight ? user.acertos + 1 : user.acertos,
+                    points: isRight ? user.points + 1 : user.points,
                 },
             });
         }
@@ -206,7 +208,7 @@ function App() {
                     ...prevPlayers,
                     [data.user.id]: {
                         ...prevPlayers[data.user.id],
-                        acertos: data.user.acertos,
+                        points: data.user.points,
                     },
                 }));
             });
@@ -216,49 +218,54 @@ function App() {
     // Host verifica se todos os usuarios responderam
     useEffect(() => {
         if (nAnswers === Object.keys(players).length && user.host) {
-            if (round === 9) {
-                setUser((prevUser) => ({
-                    ...prevUser,
-                    acertos: 0,
-                    ready: false,
-                }));
-
-                let newPlayers = {};
-                for (const [playerId, playerValue] of Object.entries(players)) {
-                    newPlayers[playerId] = {
-                        ...playerValue,
-                        acertos: 0,
-                        ready: false,
-                    };
-                }
-
-                setPlayers(newPlayers);
-                setSortedGame([]);
-                setRound(0);
-                setNAnswers(0);
-                setGameState("waiting-room");
-                console.log("GAME OVER");
-                socket.emit("game_over", {
-                    room: user.room,
-                    players: newPlayers,
-                });
-            } else {
-                socket.emit("change_round", {
-                    room: user.room,
-                    round: round + 1,
-                    players: players,
-                });
-                setRound((prevRound) => prevRound + 1);
-                setNAnswers(0);
-            }
+            socket.emit("change_round", {
+                room: user.room,
+                round: round + 1,
+                players: players,
+            });
+            // setRound((prevRound) => prevRound + 1);
+            setNAnswers(0);
+            setScoreBoard(true);
         }
     }, [nAnswers, user.host]);
+
+    // Host finaliza o jogo
+    useEffect(() => {
+        if (round === 10 && user.host) {
+            setUser((prevUser) => ({
+                ...prevUser,
+                points: 0,
+                ready: false,
+            }));
+
+            let newPlayers = {};
+            for (const [playerId, playerValue] of Object.entries(players)) {
+                newPlayers[playerId] = {
+                    ...playerValue,
+                    points: 0,
+                    ready: false,
+                };
+            }
+
+            setPlayers(newPlayers);
+            setSortedGame([]);
+            setRound(0);
+            setNAnswers(0);
+            setGameState("waiting-room");
+            console.log("GAME OVER");
+            socket.emit("game_over", {
+                room: user.room,
+                players: newPlayers,
+            });
+        }
+    }, [round, user.host]);
 
     // Users recebem a mundança de rodada
     useEffect(() => {
         socket.on("receive_round_change", (data) => {
-            setRound(data.round);
+            // setRound(data.round);
             setPlayers(data.players);
+            setScoreBoard(true);
         });
     }, [socket]);
 
@@ -268,7 +275,7 @@ function App() {
             setPlayers(data.players);
             setUser((prevUser) => ({
                 ...prevUser,
-                acertos: 0,
+                points: 0,
                 ready: false,
             }));
             setSortedGame([]);
@@ -323,9 +330,14 @@ function App() {
         }
     }
 
-    // function changeRound() {
-    //     setRound((prevRound) => prevRound + 1);
-    // }
+    function disableScoreBoard() {
+        setScoreBoard(false);
+    }
+
+    function nextRound() {
+        setScoreBoard(false);
+        setRound((prevRound) => prevRound + 1);
+    }
 
     function toggleTheme() {
         setTheme(theme === "light" ? "dark" : "light");
@@ -364,11 +376,14 @@ function App() {
                 return (
                     <GameScreen
                         key={gameIdx}
+                        scoreBoard={scoreBoard}
                         theme={theme}
                         game={game}
+                        user={user}
                         round={round}
                         players={players}
                         submitAnswer={submitAnswer}
+                        nextRound={nextRound}
                     />
                 );
             }

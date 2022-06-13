@@ -1,0 +1,42 @@
+.score-board-player-container {
+    width: 90%;
+    height: 11.875%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.score-board-player-left-container {
+    height: 100%;
+    width: 92%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.score-board-player-img {
+    height: auto;
+    width: auto;
+    max-width: 60%;
+    max-height: 60%;
+    border-radius: 50%;
+    margin-left: 1%;
+}
+
+.score-board-player-name {
+    font-size: 90%;
+    margin-left: 2%;
+}
+
+.score-board-player-account {
+    font-size: 80%;
+    margin-left: 2%;
+    color: #aab8c2;
+}
+
+.score-board-player-points {
+    font-size: 100%;
+    margin-left: 1%;
+    color: #aab8c2;
+    justify-self: flex-end;
+}
