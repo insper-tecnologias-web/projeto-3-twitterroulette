@@ -9,7 +9,9 @@ import { nanoid } from "nanoid";
 import { useState, useEffect } from "react";
 import axios from "axios";
 
-const socket = io.connect("https://floating-peak-58701.herokuapp.com/");
+const socket = io.connect("https://floating-peak-58701.herokuapp.com/", {
+    transports: ["websocket", "polling", "flashsocket"],
+});
 function App() {
     const [theme, setTheme] = useState("light");
     const [gameState, setGameState] = useState("initial");
