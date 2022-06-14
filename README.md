@@ -15,7 +15,7 @@ Alguns exemplos de usuarios para jogar rapidamente **(Observação: É necessár
 - @neymarjr
 
 Selecionada essas opções (as quais podem ser alteradas depois), o jogador deve criar ou entrar em uma sala de espera, nessas existe um chat que os jogadores podem usar para se comunicar, há também a possibilidade de cada jogador mudar seu avatar, nome ou usuário do twitter.
-O jogo permanecerá nessa sala de espera até que o host da sala decida iniciar o jogo clicando em jogar. **(Observação: Ainda não foi implementado uma tela de carregamento, portanto após clicar em jogar espere alguns instantes que o jogo começará!)**
+O jogo permanecerá nessa sala de espera até que o host da sala decida iniciar o jogo clicando em jogar. **(Observação: Ainda não foi implementado uma tela de carregamento, portanto, após clicar em jogar espere alguns instantes que o jogo começará!)**
 
 Assim, começam as rodadas, ao todo são 10 rodadas e ao fim de cada uma é mostrado o placar de pontuação, ao final do jogo, todos voltam para a sala de espera.
 
