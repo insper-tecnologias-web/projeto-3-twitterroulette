@@ -22,8 +22,8 @@ Assim, começam as rodadas, ao todo são 10 rodadas e ao fim de cada uma é most
 ### Desenvolvimento e Repositórios:
 Este foi um projeto da disciplina Tecnologias Web com auxilio dos professores Bárbara Tieko e Gustavo Calixto, o tema do projeto era livre desde que envolvesse alguma tecnologia web. Para o deploy da aplicação foi usado o Heroku junto de três repositórios:
 - [Repositório relativo ao frontend (este repositório!)](https://github.com/insper-tecnologias-web/projeto-3-twitterroulette)
-- [Repositório do servidor do jogo responsável pela atualização dos jogos](https://github.com/Paulofalcao2002/twitterRouletteSocket)
-- [Repositório do backend para recolhimento de informações das contas do twitter](https://github.com/Paulofalcao2002/twitter_roulette_backend)
+- [Repositório do servidor do jogo, responsável pela atualização dos jogos](https://github.com/Paulofalcao2002/twitterRouletteSocket)
+- [Repositório do backend, para recolhimento de informações das contas do twitter](https://github.com/Paulofalcao2002/twitter_roulette_backend)
 
 **Observação: Para recolher as informações no backend utilizou-se a seguinte API: [Twitter by social miner](https://rapidapi.com/socialminer/api/twitter32/)**
 
