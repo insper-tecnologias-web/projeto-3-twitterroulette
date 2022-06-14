@@ -9,7 +9,7 @@ Twitter Roulette é um jogo multiplayer web, onde os jogadores entrarão numa sa
 
 ### Como jogar:
 Na tela inicial, cada jogador deverá fornecer um nome de usuário para se identificar, e qual conta do twitter ele quer usar, a verificação quanto ao fato dessa conta do twitter existir ou ser privada ainda está em desenvolvimento, portanto, deve-se escrever uma que exista para prosseguir com o jogo.
-Alguns exemplos de usuarios para jogar rapidamente **(Observação: É necessário como o "@" assim como as letras maiúsculas!)**:
+Alguns exemplos de usuarios para jogar rapidamente **(Observação: É necessário colocar o "@" assim como as letras maiúsculas!)**:
 - @elonmusk
 - @Anitta
 - @neymarjr
