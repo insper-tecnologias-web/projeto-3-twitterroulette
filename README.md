@@ -25,7 +25,7 @@ Este foi um projeto da disciplina Tecnologias Web com auxilio dos professores B�
 - [Repositório do servidor do jogo, responsável pela atualização dos jogos](https://github.com/Paulofalcao2002/twitterRouletteSocket)
 - [Repositório do backend, para recolhimento de informações das contas do twitter](https://github.com/Paulofalcao2002/twitter_roulette_backend)
 
-**Observação: Para recolher as informações no backend utilizou-se a seguinte API: [Twitter by social miner](https://rapidapi.com/socialminer/api/twitter32/)**
+**Observação: Para recolher as informações no backend utilizou-se a seguinte API: [Twitter by Glavier](https://rapidapi.com/Glavier/api/twitter135/)**
 
 ### Cronograma do desenvolvimento:
 O projeto teve como prazo três semanas, e utilizou-se de sprints como metodologia de trabalho.
