@@ -3,6 +3,7 @@
 Feito por Eduardo Cunha, Felipe Schiavinato, Paulo Falcão e Pedro Dannecker.
 
 ### [Jogar](https://twitter-roulette.herokuapp.com/)
+### [Tutorial de como jogar](https://www.youtube.com/watch?v=JB9_KcqmZ7M)
 
 ### Descrição:
 Twitter Roulette é um jogo multiplayer web, onde os jogadores entrarão numa sala adotando qualquer perfil aberto do Twitter. A cada rodada será disposto uma informação anônima sobre um dos usuários do jogo, como um tweet ou um retweet. O objetivo da rodada é adivinhar de que jogador é a informação disposta na tela, ou seja, quem fez aquele tweet, quem segue aquela conta, etc. Ao final de 10 rodadas a partida chegará ao fim, com um vencedor. 
