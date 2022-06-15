@@ -58,9 +58,9 @@ export default function GameScreen(props) {
         }
     }, [props.scoreBoard]);
 
-    console.log(`scoreBoard: ${props.scoreBoard}`);
-    console.log(`game:`);
-    console.log(props.game);
+    // console.log(`scoreBoard: ${props.scoreBoard}`);
+    // console.log(`game:`);
+    // console.log(props.game);
 
     if (props.scoreBoard) {
         return (

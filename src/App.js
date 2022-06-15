@@ -34,11 +34,11 @@ function App() {
     const [userEdited, setUserEdited] = useState(false);
     const [wrongPassword, setWrongPassword] = useState(false);
 
-    console.log("players");
-    console.log(players);
+    // console.log("players");
+    // console.log(players);
 
-    console.log("GAME STATE");
-    console.log(gameState);
+    // console.log("GAME STATE");
+    // console.log(gameState);
 
     // ***** caminho do socket ******
 
@@ -171,7 +171,7 @@ function App() {
         });
     }, [socket]);
 
-    console.log("numero de respostas " + nAnswers);
+    // console.log("numero de respostas " + nAnswers);
     // User e Host responderam uma rodada
     function submitAnswer(isRight) {
         setUser((prevUser) => ({
@@ -254,7 +254,7 @@ function App() {
             setRound(0);
             setNAnswers(0);
             setGameState("waiting-room");
-            console.log("GAME OVER");
+            // console.log("GAME OVER");
             socket.emit("game_over", {
                 room: user.room,
                 players: newPlayers,
